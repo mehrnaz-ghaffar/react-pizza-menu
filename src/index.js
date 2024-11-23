@@ -49,7 +49,21 @@ const pizzaData = [
 function App() {
   return (
     <div>
-      <h1> Hello</h1>
+      <Header />
+      <Menu />
+      <Footer />
+    </div>
+  );
+}
+
+function Header() {
+  return <h1>Fast React Pizza Co.</h1>;
+}
+
+function Menu() {
+  return (
+    <div>
+      <h2>Our Menu</h2>
       <Pizza />
     </div>
   );
@@ -63,6 +77,14 @@ function Pizza() {
       <p>Bread with italian olive oil and rosemary</p>
     </div>
   );
+}
+
+function Footer() {
+  return (
+    <footer> {new Date().toLocaleTimeString()} We're currently open!</footer>
+  );
+  // This is actually what happens behind the scene
+  // return React.createElement("footer", null, "We're currently open!");
 }
 
 const root = ReactDom.createRoot(document.getElementById("root"));
