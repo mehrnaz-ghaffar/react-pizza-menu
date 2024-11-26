@@ -69,20 +69,20 @@ function Header() {
 
 function Menu() {
   const hasAnyPizzas = pizzaData.length;
+  // const hasAnyPizzas = 0;
 
   return (
     <main className="menu">
       <h2>Our Menu</h2>
 
-      {/* the condition in short circuting has to return true or false or else it will be shown in the browser
-      here if the hasAnyPizzas is 0 and the condition is directly on it it will show 0 in browser 
-    */}
-      {hasAnyPizzas > 0 && (
+      {hasAnyPizzas > 0 ? (
         <ul className="pizzas">
           {pizzaData.map((pizza) => (
             <Pizza pizzaObject={pizza} key={pizza.name} />
           ))}
         </ul>
+      ) : (
+        <p> We are still working on our menu </p>
       )}
     </main>
   );
@@ -115,13 +115,17 @@ function Footer() {
 
   return (
     <footer className="footer">
-      {isOpen && (
+      {isOpen ? (
         <div className="order">
           <p>
             We're open untill {closeHoour}:00, come visite us or order online
           </p>
           <button className="btn"> Order Now </button>
         </div>
+      ) : (
+        <p>
+          We are happy to welcome you from {openHour}:00 to {closeHoour}:00
+        </p>
       )}
     </footer>
   );
