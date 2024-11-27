@@ -76,12 +76,18 @@ function Menu() {
       <h2>Our Menu</h2>
 
       {hasAnyPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObject={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        // <React.Fragment>
+        <>
+          <p>This is a test paraghraph to test fragments</p>
+
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObject={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
+        // </React.Fragment>
         <p> We are still working on our menu </p>
       )}
     </main>
